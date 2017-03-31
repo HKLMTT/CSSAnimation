@@ -259,3 +259,5 @@ $.cssEase = {
         'easeInOutBack' : 'cubic-bezier(.68,-.55,.265,1.55)'
     };
 </pre>
+
+<h3>QQ:312678057</h3>
