@@ -48,15 +48,6 @@
         this[0].anim.pause();
         return this;
     }
-    $.fn.cax        = function (e) {
-    
-    }
-    $.fn.cay        = function (e) {
-    
-    }
-    $.fn.caz        = function (e) {
-    
-    }
     class CA {
         constructor(){
             if(typeof arguments[0] != "object" || this.state === "pause") return ;
