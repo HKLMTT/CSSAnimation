@@ -1,8 +1,5 @@
 /*
  * $.ca({x,y,z ... , time , delay , cssEase } , complete , steping)
- *
- *
- *
  * */
 "use strict";
 (function($) {
