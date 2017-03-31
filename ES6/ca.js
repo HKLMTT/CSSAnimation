@@ -13,7 +13,6 @@
     }
     var noanim      = {"perspective-origin":true,"transition":true};
     var aliasList   = {"x":"translateX","y":"translateY","z":"translateZ","origin":"perspective-origin","alpha":"opacity"};
-    console.log("Browser " , Browser);
     $.fn.ca = function (ops , callback , step) {
         if(this[0].animList instanceof Array === false) this[0].animList = [];
         var run = function (e) {
