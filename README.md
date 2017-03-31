@@ -1,6 +1,7 @@
+<h2>版本  <spen>v 0.0.1</spen></h2>
 <pre>
 食用方法:
-$("#BOX").ca({x:100 , height:"10rem" , complete , steping});
+$("#BOX").ca({x:100 , height:"10rem"} , complete , steping);
 </pre>
 <pre>
 链式调用:
