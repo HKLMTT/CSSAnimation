@@ -1,4 +1,4 @@
-<h2>版本  <spen>v 0.0.1</spen></h2>
+<h2>版本  <spen>v 0.0.24</spen></h2>
 <pre>
 食用方法:
 $("#BOX").ca({x:100 , height:"10rem"} , complete , steping);
@@ -29,7 +29,7 @@ $("#BOX").ca({x:100 , height:"10rem"})
                 <td>执行动画</td>
             </tr>
             <tr>
-                <td>caplay</td>
+                <td>caPlay</td>
                 <td>$.caplay();</td>
                 <td>
                     恢复暂停动画
@@ -38,14 +38,34 @@ $("#BOX").ca({x:100 , height:"10rem"})
                 </td>
             </tr>
             <tr>
-                <td>capause</td>
+                <td>caPause</td>
                 <td>$.capause();</td>
                 <td>暂停动画</td>
             </tr>
             <tr>
-                <td>castop</td>
+                <td>caStop</td>
                 <td>$.castop();</td>
-                <td>立即终止动画为完成状态</td>
+                <td>立即终止当前动画为完成状态,同时清空队列</td>
+            </tr>
+            <tr>
+                <td>caClear</td>
+                <td>$.caclear();</td>
+                <td>清空当前动画队列 (所有对同一对象执行的动画都会进入队列)</td>
+            </tr>caSlide
+            <tr>
+                <td>caSlide</td>
+                <td>$.caSlide(b:Boolean, time:Number, callback);</td>
+                <td>折叠动画,自动切换折叠与展开,参数:b true强制显示;false:强制关闭</td>
+            </tr>
+            <tr>
+                <td>caFlip</td>
+                <td>$.caFlip(b:Boolean, time:Number, callback);</td>
+                <td>X轴翻转动画,参数:b true强制显示;false:强制关闭</td>
+            </tr>
+            <tr>
+                <td>caTurn</td>
+                <td>$.caTurn(b:Boolean, time:Number, callback);</td>
+                <td>Y轴翻转动画,参数:b true强制显示;false:强制关闭</td>
             </tr>
 </table>        
       
