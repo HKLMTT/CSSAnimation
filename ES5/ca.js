@@ -22,7 +22,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return t ? t : a[0];
         },
         get v() {
-            return "0.0.24";
+            return "0.0.27";
         }
     };
     console.log("init ca_v." + $.ca.v);
@@ -63,6 +63,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 window.setTimeout(function () {
                     return _this.anim && _this.anim.run();
                 }, 0);
+                //_this.anim && _this.anim.run();
             } else {
                 this.css("transition", "");
                 if (_this.animList) delete _this.animList;
@@ -98,6 +99,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
         });
         return this;
+    };
+    $.fn.caDelay = function (delay, callback) {
+        return this.ca({ delay: isNaN(delay) ? 0 : delay, time: 0 }, callback);
     };
     $.fn.caX = function () {
         return CA.getTranslate3d(this).x;
@@ -176,6 +180,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 if (e != "re" && this.time > 0) this.css["transition"] = this.getTransition(this.time, this.ease, this.delay);
                 if (this.timeout) clearTimeout(this.timeout);
                 this.obj.show(0);
+                if (this.obj.css("visibility") === "hidden") this.obj.css("visibility", "visible");
                 //debugger;
                 if (this.time === 0 && this.delay === 0) {
                     this.obj.css(this.css);
