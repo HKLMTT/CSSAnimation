@@ -1,5 +1,5 @@
 /*
- * $.ca({x,y,z ... , time , delay , cssEase } , complete , steping)
+ * $.ca({x,y,z ... ,time, delay, cssEase }, complete, steping)
  * */
 "use strict";
 (function($) {
@@ -15,7 +15,7 @@
             return t ? t : a[0];
         },
         get v(){
-            return "0.0.24";
+            return "0.0.27";
         }
     };
     console.log("init ca_v." + $.ca.v);
@@ -27,7 +27,7 @@
     }
     var noanim      = {"perspective-origin":true,"transition":true};
     var aliasList   = {"x":"translateX","y":"translateY","z":"translateZ","pOrigin":"perspective-origin","tOrigin":"transform-origin","alpha":"opacity"};
-    $.fn.ca = function (ops , callback , step) {//
+    $.fn.ca = function (ops, callback, step) {//
         var _this = $.ca.getThis(this);
         if(_this.animList instanceof Array === false) _this.animList = [];
         var run = function (e) {
@@ -35,7 +35,7 @@
                 if(_this.anim.hide) this.hide(0);
                 if(_this.animList[0][1]) {
                     var complete = _this.animList[0][1];
-                    setTimeout(() => complete.call(this , e), 0);
+                    setTimeout(() => complete.call(this, e), 0);
                 }
                 _this.animList.shift();
                 if(_this.anim) {
@@ -45,8 +45,9 @@
                 }
             }
             if(_this.animList && _this.animList.length > 0) {
-                _this.anim = new CA(this , _this.animList[0][0] , (e) => run.call(this , e) , step );
+                _this.anim = new CA(this, _this.animList[0][0], (e) => run.call(this, e), step );
                 window.setTimeout(() => _this.anim && _this.anim.run() , 0);
+                //_this.anim && _this.anim.run();
             }else {
                 this.css("transition" , "");
                 if(_this.animList) delete _this.animList;
@@ -82,6 +83,9 @@
             }
         })
         return this;
+    }
+    $.fn.caDelay    = function (delay, callback) {
+        return this.ca({delay:isNaN(delay) ? 0 : delay, time:0}, callback);
     }
     $.fn.caX        = function () {
         return CA.getTranslate3d(this).x;
@@ -155,6 +159,7 @@
             if(e != "re" && this.time > 0) this.css[`transition`] = this.getTransition(this.time , this.ease , this.delay);
             if(this.timeout) clearTimeout(this.timeout);
             this.obj.show(0);
+            if(this.obj.css("visibility") === "hidden") this.obj.css("visibility", "visible");
             //debugger;
             if(this.time === 0 && this.delay === 0) {
                 this.obj.css(this.css)
