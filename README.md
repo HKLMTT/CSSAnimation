@@ -1,4 +1,5 @@
-<h2>版本  <spen>v 0.0.27</spen></h2>
+<h2>版本  <spen>v 0.0.27</spen></h2>
+项目网站: http://hklmtt.iok.la:81/ca/
 <pre>
 食用方法:
 $("#BOX").ca({x:100 , height:"10rem"} , complete , steping);
